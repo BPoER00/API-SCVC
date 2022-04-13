@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AzkEvDUNhAiqt2jNwa8p4tJ8SSf+9lCPFtSume5LhvkEUd84veoUI9raCkvjdxrK3WG2tVX2/HQNMKHQpYv18A==",
+  "dgSpecHash": "piuAgKr1sBCp63DlS+jtUshG8oZltkE2ffZ+LISPdAp3HBzJpAjrSlYCMh9vz6uKA7GTP7spoqWXZDO9YfDSEA==",
   "success": true,
-  "projectFilePath": "/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/SCVC/SCVC.csproj",
+  "projectFilePath": "/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/SCVC.csproj",
   "expectedPackageFiles": [
     "/home/mrkobp/.nuget/packages/microsoft.aspnetcore.authentication/2.1.2/microsoft.aspnetcore.authentication.2.1.2.nupkg.sha512",
     "/home/mrkobp/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.1.1/microsoft.aspnetcore.authentication.abstractions.2.1.1.nupkg.sha512",
@@ -151,7 +151,8 @@
     "/home/mrkobp/.nuget/packages/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/home/mrkobp/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/home/mrkobp/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
-    "/home/mrkobp/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512"
+    "/home/mrkobp/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "/home/mrkobp/.nuget/packages/microsoft.netcore.app.host.linux-x64/3.1.23/microsoft.netcore.app.host.linux-x64.3.1.23.nupkg.sha512"
   ],
   "logs": [
     {

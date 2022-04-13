@@ -7435,11 +7435,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/SCVC/SCVC.csproj",
+      "projectUniqueName": "/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/SCVC.csproj",
       "projectName": "SCVC",
-      "projectPath": "/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/SCVC/SCVC.csproj",
+      "projectPath": "/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/SCVC.csproj",
       "packagesPath": "/home/mrkobp/.nuget/packages/",
-      "outputPath": "/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/SCVC/obj/",
+      "outputPath": "/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/mrkobp/.nuget/NuGet/NuGet.Config"
@@ -7452,6 +7452,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -7463,6 +7464,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
@@ -7497,6 +7499,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[3.1.23, 3.1.23]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -7505,7 +7513,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.408/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
       }
     }
   },

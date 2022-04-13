@@ -29,48 +29,60 @@ namespace SCVC.Controllers
         }
 
         [HttpPost("Post")]
-        public async Task<IActionResult> Post(LoginVM login)
+        public Reply Post(LoginVM login)
         {
-            if(!ModelState.IsValid)
+            var oR = new Reply();
+            oR.result = 0;
+
+            try
             {
-                return BadRequest(ErrorHelper.GetModelStateErrors(ModelState));
-            }
-            else
-            {
-                var usuario = await this.DbConexion.Usuarios.Where(x => x.Usuario == login.Usuario).FirstOrDefaultAsync();
-                if(usuario == null)
+                if (!ModelState.IsValid)
                 {
-                    return NotFound(ErrorHelper.Response(404, "Usuario No Encontrado"));
+                    oR.message = "400 Modelo Invalido";
                 }
                 else
                 {
-                    if(HashHelper.CheckHash(login.Clave, usuario.PassUser, usuario.Sal))
+                    var usuario = this.DbConexion.Usuarios.Where(x => x.Usuario == login.Usuario).FirstOrDefault();
+                    if (usuario == null)
                     {
-                        var secretKey = configuration.GetValue<string>("SecretKey");
-                        var key = Encoding.ASCII.GetBytes(secretKey);
-
-                        var claims = new ClaimsIdentity();
-                        claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, login.Usuario));
-
-                        var tokenDescriptor = new SecurityTokenDescriptor
-                        {
-                            Subject = claims,
-                            Expires = DateTime.UtcNow.AddHours(10),
-                            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                        };
-
-                        var tokenHandler = new JwtSecurityTokenHandler();
-                        var createdToken = tokenHandler.CreateToken(tokenDescriptor);
-
-                        string TokenAcceso = tokenHandler.WriteToken(createdToken);
-                        return Ok(TokenAcceso);
+                        oR.message = "404 Usuario No Encontrado";
                     }
                     else
                     {
-                        return Forbid();
+                        if (HashHelper.CheckHash(login.Clave, usuario.PassUser, usuario.Sal))
+                        {
+                            oR.result = 1;
+                            var secretKey = configuration.GetValue<string>("SecretKey");
+                            var key = Encoding.ASCII.GetBytes(secretKey);
+
+                            var claims = new ClaimsIdentity();
+                            claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, login.Usuario));
+
+                            var tokenDescriptor = new SecurityTokenDescriptor
+                            {
+                                Subject = claims,
+                                Expires = DateTime.UtcNow.AddHours(10),
+                                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                            };
+
+                            var tokenHandler = new JwtSecurityTokenHandler();
+                            var createdToken = tokenHandler.CreateToken(tokenDescriptor);
+
+                            string TokenAcceso = tokenHandler.WriteToken(createdToken);
+                            oR.data = TokenAcceso;
+                        }
+                        else
+                        {
+                            oR.message = "Error Al Generar El Token";
+                        }
                     }
                 }
             }
+            catch
+            {
+                oR.message = "Error";
+            }
+            return oR;
         }
     }
 }
