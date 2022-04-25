@@ -46,7 +46,7 @@ namespace SCVC
             });
 
             services.AddControllers();
-            var connection = @"Data Source=SQL8001.site4now.net;Initial Catalog=db_a851c6_scvc;User Id=db_a851c6_scvc_admin;Password=SoUMG123";
+            var connection = @"Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=vacunas2022_;User Id=vacunas2022_;Password=SoUMG123";
 
             services.AddDbContext<ConexionContext>(options => options.UseSqlServer(connection));
 
@@ -76,3 +76,5 @@ namespace SCVC
         }
     }
 }
+
+//https://freeasphosting.net/cp/databases.aspx#

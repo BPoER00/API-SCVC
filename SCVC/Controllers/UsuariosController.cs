@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SCVC.Helper;
@@ -10,6 +11,7 @@ namespace SCVC.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class UsuariosController : ControllerBase
     {
         private ConexionContext DbConexion;
@@ -65,6 +67,58 @@ namespace SCVC.Controllers
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                 }
+            }
+        }
+
+        [HttpPut("Put/{id}")]
+        public async Task<IActionResult> Put(int id, Usuarios usuario)
+        {
+            if(usuario.IdUsuario == 0)
+            {
+                usuario.IdUsuario = id;
+            }
+            else if(usuario.IdUsuario != id)
+            {
+                return BadRequest(ErrorHelper.GetModelStateErrors(ModelState));
+            }
+            if(!await this.DbConexion.Usuarios.Where(p => p.IdUsuario == id).AsTracking().AnyAsync())
+            {
+                return NotFound(ErrorHelper.Response(404, "Usuario No Encontrado"));
+            }
+            else
+            {
+                HashedPassword Password = HashHelper.Hash(usuario.PassUser);
+                usuario.PassUser = Password.Password;
+                usuario.Estatus = 1;
+                usuario.Sal = Password.Salt;                
+    
+                this.DbConexion.Entry(usuario).State = EntityState.Modified;
+
+                if(!ModelState.IsValid)
+                {
+                    return BadRequest(ErrorHelper.GetModelStateErrors(ModelState));
+                }
+                else
+                {
+                    await this.DbConexion.SaveChangesAsync();
+                    return NoContent();
+                }
+            }
+        }
+
+        [HttpDelete("Delete/{id}")]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            var Usuarios = await this.DbConexion.Usuarios.FindAsync(id);
+            if(Usuarios == null)
+            {
+                return BadRequest(ErrorHelper.Response(404, "Usuario No Encontrado"));
+            }
+            else
+            {
+                this.DbConexion.Remove(Usuarios);
+                await this.DbConexion.SaveChangesAsync();
+                return Ok();
             }
         }
     }

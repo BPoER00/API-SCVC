@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -21,5 +22,11 @@ namespace SCVC.Models
         public int Estatus { get; set; }
 
         public string Sal { get; set; }
+
+        public int IdRol { get; set; }
+
+        //llaves Foraneas
+
+        public virtual ICollection<RolUsuario> RolUsuario { get; set; }
     }
 }
