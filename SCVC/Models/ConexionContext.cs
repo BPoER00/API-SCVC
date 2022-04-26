@@ -16,7 +16,14 @@ namespace SCVC.Models
         public DbSet<Edades> Edades { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<TBL_Persona> TBL_Personas { get; set; }
-
+        public DbSet<Clasificacion> Clasificacion { get; set; }
+        public DbSet<Generaciones> Generaciones { get; set; }
+        public DbSet<MotivoConsulta> MotivoConsultas { get; set; }
+        public DbSet<TipoConsulta> TipoConsultas { get; set; }
+        public DbSet<TipoEnfermedad> TipoEnfermedad { get; set; }
+        public DbSet<TipoPrueba> TipoPruebas { get; set; }
+        public DbSet<Tratamiento> Tratamientos { get; set; }
+        public DbSet<Vigilancia> Vigilancias { get; set; }  
 
     }
 }
