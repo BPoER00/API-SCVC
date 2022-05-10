@@ -59,7 +59,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(direcciones);
+                    this.DbConexion.Direcciones.Add(direcciones);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -107,7 +107,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(Direccion);
+                this.DbConexion.Direcciones.Remove(Direccion);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

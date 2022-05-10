@@ -57,7 +57,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(clasificacion);
+                    this.DbConexion.Clasificacion.Add(clasificacion);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -105,7 +105,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(clasificacion);
+                this.DbConexion.Clasificacion.Remove(clasificacion);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

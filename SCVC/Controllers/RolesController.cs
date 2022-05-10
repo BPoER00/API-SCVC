@@ -57,7 +57,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(Rol);
+                    this.DbConexion.Roles.Add(Rol);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -105,7 +105,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(Rol);
+                this.DbConexion.Roles.Remove(Rol);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

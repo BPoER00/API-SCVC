@@ -27,6 +27,6 @@ namespace SCVC.Models
 
         //llaves Foraneas
 
-        public virtual ICollection<RolUsuario> RolUsuario { get; set; }
+        public virtual RolUsuario RolUsuario { get; set; }
     }
 }

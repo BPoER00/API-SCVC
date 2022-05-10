@@ -57,7 +57,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(edades);
+                    this.DbConexion.Edades.Add(edades);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -105,7 +105,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(Edadades);
+                this.DbConexion.Edades.Remove(Edadades);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

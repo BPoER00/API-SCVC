@@ -8,6 +8,7 @@ namespace SCVC.Models
     {
         [Key]
         public int IdRol { get; set; }
+        [Required]
         public string NombreRol { get; set; }
     }
 }

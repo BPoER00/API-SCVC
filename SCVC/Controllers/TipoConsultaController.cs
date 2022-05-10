@@ -51,7 +51,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Add(tipoConsulta);
+                this.DbConexion.TipoConsultas.Add(tipoConsulta);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();           
             }
@@ -60,15 +60,15 @@ namespace SCVC.Controllers
         [HttpPut("Put/{id}")]
         public async Task<IActionResult> Put(int id, TipoConsulta tipoConsulta)
         {
-            if(tipoConsulta.IdTipoConsulta == 0)
+            if(tipoConsulta.IdTipoContulta == 0)
             {
-                tipoConsulta.IdTipoConsulta = id;
+                tipoConsulta.IdTipoContulta = id;
             }
-            else if(tipoConsulta.IdTipoConsulta != id)
+            else if(tipoConsulta.IdTipoContulta != id)
             {
                 return BadRequest(ErrorHelper.GetModelStateErrors(ModelState));
             }
-            if(!await this.DbConexion.TipoConsultas.Where(t => t.IdTipoConsulta == id).AsNoTracking().AnyAsync())
+            if(!await this.DbConexion.TipoConsultas.Where(t => t.IdTipoContulta == id).AsNoTracking().AnyAsync())
             {
                 return NotFound(ErrorHelper.Response(404, "Dato No Encontrado"));
             }
@@ -98,10 +98,10 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(tipo);
+                this.DbConexion.TipoConsultas.Remove(tipo);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }
         }                              
     }
-}
+} 

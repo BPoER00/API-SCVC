@@ -63,7 +63,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(persona);
+                    this.DbConexion.TBL_Personas.Add(persona);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -111,7 +111,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(Persona);
+                this.DbConexion.TBL_Personas.Remove(Persona);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

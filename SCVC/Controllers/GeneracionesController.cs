@@ -57,7 +57,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(generaciones);
+                    this.DbConexion.Generaciones.Add(generaciones);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -105,7 +105,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(generaciones);
+                this.DbConexion.Generaciones.Remove(generaciones);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

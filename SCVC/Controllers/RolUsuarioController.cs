@@ -11,11 +11,11 @@ namespace SCVC.Controllers
     [ApiController]
     [Route("[controller]")]
     [Authorize]
-    public class TipoPruebaController : ControllerBase
+    public class RolUsuarioController : ControllerBase
     {
         private readonly ConexionContext DbConexion;
         
-        public TipoPruebaController(ConexionContext DbConexion)
+        public RolUsuarioController(ConexionContext DbConexion)
         {
             this.DbConexion = DbConexion;
         }
@@ -23,27 +23,27 @@ namespace SCVC.Controllers
         [HttpGet("Get")]
         public async Task<IActionResult> Get()
         {
-            var tipo = await this.DbConexion.TipoPruebas.ToListAsync();
+            var RolU = await this.DbConexion.RolU.ToListAsync();
 
-            return Ok(tipo);
+            return Ok(RolU);
         }
 
         [HttpGet("Get/{id}")]
         public async Task<IActionResult> Get(int? id)
         {
-            var tipo = await this.DbConexion.TipoPruebas.FindAsync(id);
-            if(tipo == null)
+            var RolU = await this.DbConexion.RolU.FindAsync(id);
+            if(RolU == null)
             {
                 return NotFound(ErrorHelper.Response(404, "Dato No Encontrado"));
             }
             else
             {
-                return Ok(tipo);
+                return Ok(RolU);
             }
         }
 
         [HttpPost("Post")]
-        public async Task<IActionResult> Post(TipoPrueba tipoPrueba)
+        public async Task<IActionResult> Post(RolUsuario RolU)
         {
             if(!ModelState.IsValid)
             {
@@ -51,13 +51,13 @@ namespace SCVC.Controllers
             }
             else
             {
-                if(await this.DbConexion.TipoPruebas.Where(t => t.NombrePrueba == tipoPrueba.NombrePrueba).AnyAsync())
+                if(await this.DbConexion.RolU.Where(r => r.NombreRol == RolU.NombreRol).AnyAsync())
                 {
                     return BadRequest(ErrorHelper.Response(400, "Dato Ya Existente"));
                 }
                 else
                 {
-                    this.DbConexion.TipoPruebas.Add(tipoPrueba);
+                    this.DbConexion.RolU.Add(RolU);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -65,25 +65,25 @@ namespace SCVC.Controllers
         }
 
         [HttpPut("Put/{id}")]
-        public async Task<IActionResult> Put(int id, TipoPrueba tipoPrueba)
+        public async Task<IActionResult> Put(int id, RolUsuario RolU)
         {
-            if(tipoPrueba.IdTipoPrueba == 0)
+            if(RolU.IdRol == 0)
             {
-                tipoPrueba.IdTipoPrueba = id;
+                RolU.IdRol = id;
             }
-            else if(tipoPrueba.IdTipoPrueba != id)
+            else if(RolU.IdRol != id)
             {
                 return BadRequest(ErrorHelper.GetModelStateErrors(ModelState));
             }
-            if(!await this.DbConexion.TipoPruebas.Where(t => t.IdTipoPrueba == id).AsNoTracking().AnyAsync())
+            if(!await this.DbConexion.RolU.Where(r => r.IdRol == id).AsNoTracking().AnyAsync())
             {
                 return NotFound(ErrorHelper.Response(404, "Dato No Encontrado"));
             }
             else
             {
-                this.DbConexion.Entry(tipoPrueba).State = EntityState.Modified;
+                this.DbConexion.Entry(RolU.IdRol).State = EntityState.Modified;
 
-                if(!TryValidateModel(tipoPrueba, nameof(tipoPrueba)))
+                if(!ModelState.IsValid)
                 {
                     return BadRequest(ErrorHelper.GetModelStateErrors(ModelState));
                 }
@@ -98,14 +98,14 @@ namespace SCVC.Controllers
         [HttpDelete("Delete/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
-            var tipoPrueba = await this.DbConexion.TipoPruebas.FindAsync(id);
-            if(tipoPrueba == null)
+            var RolU = await this.DbConexion.RolU.FindAsync(id);
+            if(RolU == null)
             {
                 return NotFound(ErrorHelper.Response(404, "Dato No Encontrado"));
             }
             else
             {
-                this.DbConexion.TipoPruebas.Remove(tipoPrueba);
+                this.DbConexion.RolU.Remove(RolU);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

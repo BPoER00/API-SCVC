@@ -57,7 +57,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(etnias);
+                    this.DbConexion.Etnias.Add(etnias);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -105,7 +105,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(Etnias);
+                this.DbConexion.Etnias.Remove(Etnias);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

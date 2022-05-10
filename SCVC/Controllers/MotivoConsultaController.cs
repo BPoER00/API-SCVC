@@ -51,7 +51,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Add(motivoConsulta);
+                this.DbConexion.MotivoConsultas.Add(motivoConsulta);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }
@@ -98,7 +98,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(motivoConsulta);
+                this.DbConexion.MotivoConsultas.Remove(motivoConsulta);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

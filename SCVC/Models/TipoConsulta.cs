@@ -7,15 +7,12 @@ namespace SCVC.Models
     public class TipoConsulta
     {
         [Key]
-        public int IdTipoConsulta { get; set; }
+        public int IdTipoContulta { get; set; }
         [Required(ErrorMessage = "El Campo Tratamiento Es Necesario")]
         [StringLength(100, ErrorMessage = "El Campo No Puede Ser Mayor A 100")]
-        public string NombreTratamiento { get; set; }
+        public string NombreConsulta { get; set; }
         [Required(ErrorMessage = "El Campo Descripción Es Necesario")]
         [StringLength(100, ErrorMessage = "El Campo No Puede Ser Mayor A 100")]
-        public string DescripcionTratamiento { get; set; }
-        [Required(ErrorMessage = "El Campo cantidad Es Necesario")]
-        [StringLength(100, ErrorMessage = "El Campo No Puede Ser Mayor A 100")]
-        public int Cantidad { get; set; }
+        public string Descripcion { get; set; }
     }
 }

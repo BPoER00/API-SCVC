@@ -116,7 +116,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(Usuarios);
+                this.DbConexion.Usuarios.Remove(Usuarios);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

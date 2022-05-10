@@ -57,7 +57,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(tratamientos);
+                    this.DbConexion.Tratamientos.Add(tratamientos);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -105,7 +105,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(tratamientos);
+                this.DbConexion.Tratamientos.Remove(tratamientos);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

@@ -57,7 +57,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(tipoEnfermedad);
+                    this.DbConexion.TipoEnfermedad.Add(tipoEnfermedad);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -105,7 +105,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(tipoEnfermedad);
+                this.DbConexion.TipoEnfermedad.Remove(tipoEnfermedad);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }

@@ -57,7 +57,7 @@ namespace SCVC.Controllers
                 }
                 else
                 {
-                    this.DbConexion.Add(generos);
+                    this.DbConexion.Generos.Add(generos);
                     await this.DbConexion.SaveChangesAsync();
                     return Ok();
                }
@@ -105,7 +105,7 @@ namespace SCVC.Controllers
             }
             else
             {
-                this.DbConexion.Remove(Generos);
+                this.DbConexion.Generos.Remove(Generos);
                 await this.DbConexion.SaveChangesAsync();
                 return Ok();
             }
