@@ -24,6 +24,9 @@ namespace SCVC.Models
         public DbSet<TipoEnfermedad> TipoEnfermedad { get; set; }
         public DbSet<TipoPrueba> TipoPruebas { get; set; }
         public DbSet<Tratamiento> Tratamientos { get; set; }
+        public DbSet<Vacunacion> Vacunacion { get; set; }
+        public DbSet<Vacunas> Vacunas { get; set; }
         public DbSet<Vigilancia> Vigilancias { get; set; } 
+
     }
 }

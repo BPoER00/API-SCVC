@@ -32,6 +32,15 @@ namespace SCVC.Controllers
             return Ok(personas);
         }
 
+        [HttpGet("GetEnfermero")]
+        public async Task<IActionResult> GetEnfermero()
+        {
+            var personas = await this.DbConexion.TBL_Personas.Where(x => x.IdRol == 2).Include(x => x.Direcciones).Include(x => x.Generos)
+            .Include(x => x.Etnias).Include(x => x.Edades).Include(x => x.Roles).ToListAsync();
+
+            return Ok(personas);
+        }
+
         [HttpGet("Get/{id}")]
         public async Task<IActionResult> Get(int? id)
         {

@@ -37,5 +37,6 @@
 /home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/obj/Release/netcoreapp3.1/SCVC.dll
 /home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/obj/Release/netcoreapp3.1/SCVC.pdb
 /home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/obj/Release/netcoreapp3.1/SCVC.genruntimeconfig.cache
-/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/obj/Release/netcoreapp3.1/SCVC.csproj.AssemblyReference.cache
-/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/obj/Release/netcoreapp3.1/SCVC.GeneratedMSBuildEditorConfig.editorconfig
+/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/bin/Release/netcoreapp3.1/Properties/launchSettings.json
+/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/obj/Release/netcoreapp3.1/SCVC.csprojAssemblyReference.cache
+/home/mrkobp/Desktop/VisualStudioCode/ProyectosApisC#/API-SCVC/SCVC/obj/Release/netcoreapp3.1/staticwebassets/SCVC.StaticWebAssets.xml
